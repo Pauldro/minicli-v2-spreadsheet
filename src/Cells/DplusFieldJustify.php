@@ -2,25 +2,22 @@
 
 enum DplusFieldJustify : string
 {
-    case C = 'left';
-	case D = 'left';
-	case I = 'right';
-	case N = 'right';
-    case DEFAULT = 'left';
+    case Left  = 'left';
+    case Right = 'right';
 
     /**
      * Return FieldJustify 
-     * @param  string $field
+     * @param  string $fieldtype
      * @return DplusFieldJustify
      */
-    public static function find(string $field) : DplusFieldJustify {
-        $search = strtoupper($field);
+    public static function find(string $fieldtype) : DplusFieldJustify {
+        $search = strtoupper($fieldtype);
         return match($search) {
-            'C' => self::C,
-            'D' => self::D,
-            'I' => self::I,
-            'N' => self::N,
-            default => self::DEFAULT
+            'C' => self::Left,
+            'D' => self::Left,
+            'I' => self::Right,
+            'N' => self::Right,
+            default => self::Left
         };
     }
 }

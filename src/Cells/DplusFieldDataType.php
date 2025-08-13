@@ -4,11 +4,8 @@ use PhpOffice\PhpSpreadsheet\Cell\DataType;
 
 enum DplusFieldDataType : string
 {
-    case C = DataType::TYPE_STRING;
-	case D = DataType::TYPE_NUMERIC;
-	case I = DataType::TYPE_NUMERIC;
-	case N = DataType::TYPE_NUMERIC;
-    case DEFAULT = DataType::TYPE_STRING;
+    case String = DataType::TYPE_STRING;
+    case Number = DataType::TYPE_NUMERIC;
 
     /**
      * Return FieldTypeJustify 
@@ -18,11 +15,11 @@ enum DplusFieldDataType : string
     public static function find(string $fieldtype) : DplusFieldDataType {
         $search = strtoupper($fieldtype);
         return match($search) {
-            'C' => self::C,
-            'D' => self::D,
-            'I' => self::I,
-            'N' => self::N,
-            default => self::DEFAULT
+            'C' => self::String,
+            'D' => self::Number,
+            'I' => self::Number,
+            'N' => self::Number,
+            default => self::String
         };
     }
 }
