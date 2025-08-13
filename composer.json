@@ -1,6 +1,6 @@
 {
-	"name": "pauldro/minicli-v2-database",
-	"description": "Minicli Extenders with utilities",
+	"name": "pauldro/minicli-v2-spreadsheet",
+	"description": "Minicli spreadsheet utilities",
 	"type": "library",
 	"keywords": ["php", "cli", "php-cli", "minicli"],
 	"license": "MIT",
