@@ -7,8 +7,6 @@ use PhpOffice\PhpSpreadsheet\Cell\Cell;
 use Pauldro\Minicli\v2\PhpSpreadsheet\Cells\ValueBinders\StringValueBinder;
 
 /**
- * Reader\Tsv
- * 
  * Handles Getting the tab-separated Reader, Returning Spreadsheets
  */
 class Tsv {

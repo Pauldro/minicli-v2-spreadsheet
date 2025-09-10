@@ -3,11 +3,8 @@
 use PhpOffice\PhpSpreadsheet\Cell\DataType;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
-
 /**
- * Number
- * 
- * Functions for Numbers
+ * Utilities for Numbers
  */
 class Number {
 	const TYPE = DataType::TYPE_NUMERIC;
@@ -32,7 +29,7 @@ class Number {
 	 * @return string
 	 */
 	public static function generateDecimalFormatCode($nbr) : string
-		{
+	{
 		$nbr = "$nbr";
 
 		if (strpos($nbr, '.') !== false) {

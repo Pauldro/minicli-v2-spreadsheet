@@ -8,12 +8,10 @@ use Pauldro\Minicli\v2\PhpSpreadsheet\Cells\Cell;
 
 
 /**
- * Converter\Tsv2Xlsx
- * 
  * Handles Converting Cells for Xlsx from TSV
  * 
- * @property Data\Request     $request     Request Data Container
- * @property Spreadsheet $spreadsheet Original Spreadsheet
+ * @property Data\Request  $request      Request Data Container
+ * @property Spreadsheet   $spreadsheet  Original Spreadsheet
  */
 class Tsv2Xlsx {
 	public function __construct(Data\Request $request, Spreadsheet $spreadsheet) {

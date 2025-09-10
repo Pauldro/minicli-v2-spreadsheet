@@ -1,14 +1,11 @@
 <?php namespace Pauldro\Minicli\v2\PhpSpreadsheet\Cells;
 // PhpSpreadsheet
-use Pauldro\Minicli\v2\Logging\FieldTypeJustify;
 use PhpOffice\PhpSpreadsheet\Cell\Cell as SsCell;
 // Lib PhpSpreadsheet
 use Pauldro\Minicli\v2\PhpSpreadsheet\Styles;
 
 
 /**
- * Cell
- * 
  * Handles Manipulating Cell
  */
 class Cell {

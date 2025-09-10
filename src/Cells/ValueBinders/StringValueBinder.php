@@ -4,8 +4,6 @@ use PhpOffice\PhpSpreadsheet\Cell\DefaultValueBinder;
 use PhpOffice\PhpSpreadsheet\Cell\DataType;
 
 /**
- * StringValueBinder
- * 
  * Handles Binding Cell Data as string
  */
 class StringValueBinder extends DefaultValueBinder {

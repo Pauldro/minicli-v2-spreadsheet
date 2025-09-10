@@ -52,7 +52,8 @@ class Styles {
 	 * @param  string $justify  Code given e.g. r, right
 	 * @return string
 	 */
-	public static function getAlignmentCode($justify) {
+	public static function getAlignmentCode($justify) : string
+	{
 		switch (substr($justify, 0, 1)) {
 			case 'r':
 				return Alignment::HORIZONTAL_RIGHT;
@@ -68,7 +69,8 @@ class Styles {
 	 * @param Worksheet $sheet       Sheet
 	 * @param int       $columncount Number of Columns to iterate
 	 */
-	public static function setColumnsAutowidth(Worksheet $sheet, int $columncount = 0) {
+	public static function setColumnsAutowidth(Worksheet $sheet, int $columncount = 0) : void
+	{
 		if ($columncount === 0) {
 			$columncount = Coordinate::columnIndexFromString($sheet->getHighestColumn());
 		}

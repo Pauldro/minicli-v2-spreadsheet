@@ -16,7 +16,8 @@ class Xlsx extends AbstractWriter {
 	 * Return Spreadsheet File Writer
 	 * @return WriterXlsx
 	 */
-	protected function getWriter(Spreadsheet $spreadsheet) : WriterXlsx {
+	protected function getWriter(Spreadsheet $spreadsheet) : WriterXlsx
+	{
 		$writer = new WriterXlsx($spreadsheet);
 		return $writer;
 	}

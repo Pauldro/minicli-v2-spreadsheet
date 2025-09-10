@@ -5,8 +5,7 @@ use PhpOffice\PhpSpreadsheet\Writer\BaseWriter;
 
 
 /**
- * Writer
- * Base Class for Writing Spreadsheets
+ * Class for Writing Spreadsheets
  *
  * @property string $directory       Directory to Write file to
  * @property string $lastWrittenFile Last Written File
@@ -44,7 +43,7 @@ abstract class AbstractWriter {
 	/**
 	 * Writes Spreadsheet to File
 	 * @param  Spreadsheet $spreadsheet Spreadsheet
-	 * @param  
+	 * @param  string      $filename
 	 * @return bool
 	 */
 	public function write(Spreadsheet $spreadsheet, string $filename) : bool

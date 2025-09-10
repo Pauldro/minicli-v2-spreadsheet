@@ -4,9 +4,7 @@ use PhpOffice\PhpSpreadsheet\Cell\DataType;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
 /**
- * Date
- * 
- * Functions for Dates
+ * Utilities for Dates
  */
 class Date {
 	const TYPE = DataType::TYPE_NUMERIC;
