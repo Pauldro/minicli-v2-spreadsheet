@@ -75,7 +75,7 @@ class Styles {
 			$columncount = Coordinate::columnIndexFromString($sheet->getHighestColumn());
 		}
 
-		for ($i = 0; $i <= ($columncount); $i++) {
+		for ($i = 1; $i <= ($columncount); $i++) {
 			$index = Coordinate::stringFromColumnIndex($i);
 			$sheet->getColumnDimension($index)->setAutoSize(true);
 		}
