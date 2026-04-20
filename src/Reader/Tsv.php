@@ -10,35 +10,35 @@ use Pauldro\Minicli\v2\PhpSpreadsheet\Cells\ValueBinders\StringValueBinder;
  * Handles Getting the tab-separated Reader, Returning Spreadsheets
  */
 class Tsv {
-	private static $reader;
+    private static $reader;
 
-	/**
-	 * Return Reader
-	 * @return Reader
-	 */
-	public static function reader() : Reader
-	{
-		if (empty(self::$reader)) {
-			$reader = new Reader();
-			$reader->setInputEncoding('CP1252');
-			$reader->setSheetIndex(0);
-			$reader->setDelimiter("\t");
-			self::$reader = $reader;
-		}
-		return self::$reader;
-	}
+    /**
+     * Return Reader
+     * @return Reader
+     */
+    public static function reader() : Reader
+    {
+        if (empty(self::$reader)) {
+            $reader = new Reader();
+            $reader->setInputEncoding('CP1252');
+            $reader->setSheetIndex(0);
+            $reader->setDelimiter("\t");
+            self::$reader = $reader;
+        }
+        return self::$reader;
+    }
 
-	/**
-	 * Use Reader to return Spreadsheet
-	 * @param  string $filepath  /path/to/file
-	 * @return Spreadsheet
-	 */
-	public static function getSpreadsheet($filepath) : Spreadsheet
-	{
-		Cell::setValueBinder(new StringValueBinder());
+    /**
+     * Use Reader to return Spreadsheet
+     * @param  string $filepath  /path/to/file
+     * @return Spreadsheet
+     */
+    public static function getSpreadsheet($filepath) : Spreadsheet
+    {
+        Cell::setValueBinder(new StringValueBinder());
 
-		$reader = self::reader();
-		$reader->setReadDataOnly(true);
-		return $reader->load($filepath);
-	}
+        $reader = self::reader();
+        $reader->setReadDataOnly(true);
+        return $reader->load($filepath);
+    }
 }
