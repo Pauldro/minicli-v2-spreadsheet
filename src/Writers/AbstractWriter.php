@@ -12,52 +12,52 @@ use PhpOffice\PhpSpreadsheet\Writer\BaseWriter;
  * @property string $errorMsg 
  */
 abstract class AbstractWriter {
-	const EXTENSION = 'txt';
-	public $lastWrittenFile = '';
-	public $errorMsg = '';
-	protected $dir;
+    const EXTENSION = 'txt';
+    public $lastWrittenFile = '';
+    public $errorMsg = '';
+    protected $dir;
 
-	public function __construct($dir) {
-		if (is_dir($dir) === false) {
-			throw new \Exception("Write Directory not found: '$dir'");
-		}
-		$this->dir = rtrim($dir, '/') . '/';
-	}
+    public function __construct($dir) {
+        if (is_dir($dir) === false) {
+            throw new \Exception("Write Directory not found: '$dir'");
+        }
+        $this->dir = rtrim($dir, '/') . '/';
+    }
 
-	/**
-	 * Generate Filepath for filename
-	 * @param  string $filename
-	 * @return string
-	 */
-	protected function generateFilepath(string $filename) : string
-	{
-		return $this->dir . $filename . '.' . static::EXTENSION;
-	}
+    /**
+     * Generate Filepath for filename
+     * @param  string $filename
+     * @return string
+     */
+    protected function generateFilepath(string $filename) : string
+    {
+        return $this->dir . $filename . '.' . static::EXTENSION;
+    }
 
-	/**
-	 * Return Spreadsheet File Writer
-	 * @return BaseWriter
-	 */
-	abstract protected function getWriter(Spreadsheet $spreadsheet) : BaseWriter;
+    /**
+     * Return Spreadsheet File Writer
+     * @return BaseWriter
+     */
+    abstract protected function getWriter(Spreadsheet $spreadsheet) : BaseWriter;
 
-	/**
-	 * Writes Spreadsheet to File
-	 * @param  Spreadsheet $spreadsheet Spreadsheet
-	 * @param  string      $filename
-	 * @return bool
-	 */
-	public function write(Spreadsheet $spreadsheet, string $filename) : bool
-	{	
-		$filepath = $this->generateFilepath($filename);
-		$writer  = $this->getWriter($spreadsheet);
-		$writer->save($filepath);
-		$saved = file_exists($filepath);
+    /**
+     * Writes Spreadsheet to File
+     * @param  Spreadsheet $spreadsheet Spreadsheet
+     * @param  string      $filename
+     * @return bool
+     */
+    public function write(Spreadsheet $spreadsheet, string $filename) : bool
+    {	
+        $filepath = $this->generateFilepath($filename);
+        $writer  = $this->getWriter($spreadsheet);
+        $writer->save($filepath);
+        $saved = file_exists($filepath);
 
-		if ($saved === false) {
-			$this->errorMsg = "Failed to write spreadsheet: '$filepath'";
-			return false;
-		}
-		$this->lastWrittenFile = $filepath;
-		return true;
-	}
+        if ($saved === false) {
+            $this->errorMsg = "Failed to write spreadsheet: '$filepath'";
+            return false;
+        }
+        $this->lastWrittenFile = $filepath;
+        return true;
+    }
 }
