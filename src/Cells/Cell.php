@@ -28,30 +28,30 @@ class Cell {
 			return;
 		}
 
-		if (strlen("$value")) {
+		if (strlen("$value") && $dataType != DataTypes\Number::TYPE) {
 			$cell->setValueExplicit($value, $dataType);
 		}
+
+		$cell->setValueExplicit(floatval($value), $dataType);
 		
 		// Set Format Code for Numbers
-		if ($dataType == DataTypes\Number::TYPE) {
-			$formatCode = DataTypes\Number::generateFormatCode($value);
-			
-			// Remove Thousands comma, the formatter will add it back
-			if (strpos($value, ',') !== false) { 
-				$cell->setValueExplicit(str_replace(',', '', $value), $dataType);
-			}
+		$formatCode = DataTypes\Number::generateFormatCode($value);
+		
+		// Remove Thousands comma, the formatter will add it back
+		if (strpos($value, ',') !== false) { 
+			$cell->setValueExplicit(str_replace(',', '', $value), $dataType);
+		}
 
-			if ($fieldType == DataTypes\Date::TYPE_DPLUS) {
-				if ($value) {
-					$formatCode = DataTypes\Date::getSsDateFormat($value);
-					$cell->setValue(DataTypes\Date::getDate($value));
-				}
-			}
-
+		if ($fieldType == DataTypes\Date::TYPE_DPLUS) {
 			if ($value) {
-				$cellNumberFormat = $cell->getStyle()->getNumberFormat();
-				$cellNumberFormat->setFormatCode($formatCode);
+				$formatCode = DataTypes\Date::getSsDateFormat($value);
+				$cell->setValue(DataTypes\Date::getDate($value));
 			}
+		}
+
+		if ($value) {
+			$cellNumberFormat = $cell->getStyle()->getNumberFormat();
+			$cellNumberFormat->setFormatCode($formatCode);
 		}
 	}
 
