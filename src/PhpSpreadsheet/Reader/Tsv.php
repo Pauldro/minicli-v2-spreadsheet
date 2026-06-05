@@ -1,10 +1,10 @@
-<?php namespace Pauldro\Minicli\v2\PhpSpreadsheet\Reader;
+<?php namespace Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Reader;
 // PHP Spreadsheet
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Reader\Csv as Reader;
 use PhpOffice\PhpSpreadsheet\Cell\Cell;
 // Pauldro Minicli
-use Pauldro\Minicli\v2\PhpSpreadsheet\Cells\ValueBinders\StringValueBinder;
+use Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Cells\ValueBinders\StringValueBinder;
 
 /**
  * Handles Getting the tab-separated Reader, Returning Spreadsheets

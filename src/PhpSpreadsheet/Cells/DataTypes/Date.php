@@ -1,4 +1,4 @@
-<?php namespace Pauldro\Minicli\v2\PhpSpreadsheet\Cells\DataTypes;
+<?php namespace Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Cells\DataTypes;
 // PhpSpreadsheet
 use PhpOffice\PhpSpreadsheet\Cell\DataType;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;

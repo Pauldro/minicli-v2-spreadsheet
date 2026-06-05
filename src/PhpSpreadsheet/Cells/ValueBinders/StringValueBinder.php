@@ -1,4 +1,4 @@
-<?php namespace Pauldro\Minicli\v2\PhpSpreadsheet\Cells\ValueBinders;
+<?php namespace Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Cells\ValueBinders;
 // PHP Spreadsheet Library
 use PhpOffice\PhpSpreadsheet\Cell\DefaultValueBinder;
 use PhpOffice\PhpSpreadsheet\Cell\DataType;

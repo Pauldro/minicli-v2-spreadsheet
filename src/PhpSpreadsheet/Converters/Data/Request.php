@@ -1,4 +1,4 @@
-<?php namespace Pauldro\Minicli\v2\PhpSpreadsheet\Converters\Data;
+<?php namespace Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Converters\Data;
 // Pauldro
 use Pauldro\UtilityBelt\Data\Data;
 

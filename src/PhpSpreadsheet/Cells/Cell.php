@@ -1,8 +1,8 @@
-<?php namespace Pauldro\Minicli\v2\PhpSpreadsheet\Cells;
+<?php namespace Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Cells;
 // PhpSpreadsheet
 use PhpOffice\PhpSpreadsheet\Cell\Cell as SsCell;
 // Lib PhpSpreadsheet
-use Pauldro\Minicli\v2\PhpSpreadsheet\Styles;
+use Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Util\Styles;
 
 
 /**

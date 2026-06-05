@@ -1,4 +1,4 @@
-<?php namespace Pauldro\Minicli\v2\PhpSpreadsheet\Cells;
+<?php namespace Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Cells;
 
 enum DplusFieldJustify : string
 {

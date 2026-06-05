@@ -1,9 +1,9 @@
-<?php namespace Pauldro\Minicli\v2\PhpSpreadsheet\Writers;
+<?php namespace Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Writers;
 // PhpSpreadsheet Library
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx as WriterXlsx;
 // Dplus Spreadsheets
-use Pauldro\Minicli\v2\PhpSpreadsheet\Writers\AbstractWriter;
+use Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Writers\AbstractWriter;
 
 /**
  * Writer\Xlsx
