@@ -19,4 +19,18 @@ class Styles {
         $style->setFontSize(14);
         return $style;
     }
+
+    public static function generateRecordHeaderStyles() : Style
+    {
+        $border = new Border(
+            new BorderPart(Border::TOP, Color::BLACK, Border::WIDTH_THIN, Border::STYLE_SOLID)
+        );
+
+        $style = new Style();
+        $style->setBorder($border);
+        $style->setFontBold();
+        $style->setFontSize(12);
+        $style->setBackgroundColor(Color::toARGB('E6E6EA'));
+        return $style;
+    }
 }
