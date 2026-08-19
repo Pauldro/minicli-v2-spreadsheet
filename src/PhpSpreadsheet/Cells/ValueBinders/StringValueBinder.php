@@ -11,8 +11,6 @@ class StringValueBinder extends DefaultValueBinder
 {
     /**
      * DataType for value.
-     * @param  mixed   $pValue
-     * @return string
      */
     public static function dataTypeForValue(mixed $pValue): string
     {

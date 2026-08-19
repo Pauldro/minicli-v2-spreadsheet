@@ -33,7 +33,6 @@ class Date
     /**
      * Return PHP Formatted Date
      * @param  string $date
-     * @return string
      */
     public static function getDate($date): string
     {
@@ -43,7 +42,6 @@ class Date
     /**
      * Return PhpSpreadsheet Date format for Date
      * @param  string $date
-     * @return string
      */
     public static function getSsDateFormat($date): string
     {
@@ -58,7 +56,6 @@ class Date
     /**
      * Return PHP Date Format that matches Date
      * @param  string $date
-     * @return string
      */
     public static function getPhpDateFormat($date): string
     {

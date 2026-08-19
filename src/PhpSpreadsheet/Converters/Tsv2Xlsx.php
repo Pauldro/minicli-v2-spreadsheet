@@ -15,6 +15,8 @@ use Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Cells\Cell;
  */
 class Tsv2Xlsx
 {
+    public $request;
+    public $spreadsheet;
     public function __construct(Data\Request $request, Spreadsheet $spreadsheet)
     {
         $this->request = $request;
@@ -23,7 +25,6 @@ class Tsv2Xlsx
 
     /**
      * Convert Cell Data / Formatting for Xlsx use
-     * @return void
      */
     public function convert(): void
     {
@@ -41,7 +42,7 @@ class Tsv2Xlsx
             for ($col = 1; $col <= $highestColumnIndex; $col++) {
                 $cell  = $sheet->getCell([$col, $row]);
 
-                if ($row == 1) {
+                if ($row === 1) {
                     $cell->getStyle()->applyFromArray(Styles::STYLES_COLUMN_HEADER);
                 }
                 /** @var string $fieldType Dplus Data Type */
@@ -49,7 +50,7 @@ class Tsv2Xlsx
                 Cell::setAlignmentFromFieldtype($cell, $fieldType);
 
                 if ($row > 1) {
-                    if ($fieldType == 'D' and $cell->getValue() == '00/00/00') {
+                    if ($fieldType == 'D' && $cell->getValue() == '00/00/00') {
                         Cell::setValue($cell, 'C', '00/00/0000');
                         continue;
                     }

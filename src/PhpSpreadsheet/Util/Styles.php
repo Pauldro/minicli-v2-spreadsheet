@@ -51,18 +51,14 @@ class Styles
     /**
      * Returns Spreadsheet Alignment Code
      * @param  string $justify  Code given e.g. r, right
-     * @return string
      */
     public static function getAlignmentCode($justify): string
     {
-        switch (substr($justify, 0, 1)) {
-            case 'r':
-                return Alignment::HORIZONTAL_RIGHT;
-            case 'c':
-                return Alignment::HORIZONTAL_CENTER;
-            default:
-                return Alignment::HORIZONTAL_LEFT;
-        }
+        return match (substr($justify, 0, 1)) {
+            'r' => Alignment::HORIZONTAL_RIGHT,
+            'c' => Alignment::HORIZONTAL_CENTER,
+            default => Alignment::HORIZONTAL_LEFT,
+        };
     }
 
     /**

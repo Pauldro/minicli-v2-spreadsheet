@@ -28,8 +28,6 @@ abstract class AbstractWriter
 
     /**
      * Generate Filepath for filename
-     * @param  string $filename
-     * @return string
      */
     protected function generateFilepath(string $filename): string
     {
@@ -38,15 +36,12 @@ abstract class AbstractWriter
 
     /**
      * Return Spreadsheet File Writer
-     * @return BaseWriter
      */
     abstract protected function getWriter(Spreadsheet $spreadsheet): BaseWriter;
 
     /**
      * Writes Spreadsheet to File
      * @param  Spreadsheet $spreadsheet Spreadsheet
-     * @param  string      $filename
-     * @return bool
      */
     public function write(Spreadsheet $spreadsheet, string $filename): bool
     {

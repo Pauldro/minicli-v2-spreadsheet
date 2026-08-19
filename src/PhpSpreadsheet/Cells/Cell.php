@@ -12,10 +12,8 @@ class Cell
 {
     /**
      * Set Value for cell after formatting value
-     * @param  SsCell $cell
      * @param  string $fieldType Dplus Data Type (e.g. N for numeric)
      * @param  mixed  $value     New Cell Value
-     * @return void
      */
     public static function setValue(SsCell $cell, string $fieldType, $value = null): void
     {
@@ -39,11 +37,11 @@ class Cell
         $formatCode = DataTypes\Number::generateFormatCode($value);
 
         // Remove Thousands comma, the formatter will add it back
-        if (strpos($value, ',') !== false) {
+        if (str_contains($value, ',')) {
             $cell->setValueExplicit(str_replace(',', '', $value), $dataType);
         }
 
-        if ($fieldType == DataTypes\Date::TYPE_DPLUS) {
+        if ($fieldType === DataTypes\Date::TYPE_DPLUS) {
             if ($value) {
                 $formatCode = DataTypes\Date::getSsDateFormat($value);
                 $cell->setValue(DataTypes\Date::getDate($value));
@@ -58,9 +56,7 @@ class Cell
 
     /**
      * Set Cell Alignment (Justify) from Dplus Field Type
-     * @param  SsCell $cell
      * @param  string $fieldType  Dplus Data Type (e.g. N for numeric)
-     * @return void
      */
     public static function setAlignmentFromFieldtype(SsCell $cell, $fieldType): void
     {

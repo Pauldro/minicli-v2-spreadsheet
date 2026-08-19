@@ -16,7 +16,6 @@ class Tsv
 
     /**
      * Return Reader
-     * @return Reader
      */
     public static function reader(): Reader
     {
@@ -33,7 +32,6 @@ class Tsv
     /**
      * Use Reader to return Spreadsheet
      * @param  string $filepath  /path/to/file
-     * @return Spreadsheet
      */
     public static function getSpreadsheet($filepath): Spreadsheet
     {

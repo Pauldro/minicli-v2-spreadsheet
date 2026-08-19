@@ -9,8 +9,6 @@ enum DplusFieldDataType: string
 
     /**
      * Return FieldTypeJustify
-     * @param  string $fieldtype
-     * @return DplusFieldDataType
      */
     public static function find(string $fieldtype): DplusFieldDataType
     {
