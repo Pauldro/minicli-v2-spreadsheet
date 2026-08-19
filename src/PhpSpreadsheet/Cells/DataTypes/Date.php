@@ -1,4 +1,5 @@
 <?php namespace Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Cells\DataTypes;
+
 // PhpSpreadsheet
 use PhpOffice\PhpSpreadsheet\Cell\DataType;
 use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
@@ -6,11 +7,12 @@ use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 /**
  * Utilities for Dates
  */
-class Date {
-    const TYPE = DataType::TYPE_NUMERIC;
-    const TYPE_DPLUS = 'D';
+class Date
+{
+    public const TYPE = DataType::TYPE_NUMERIC;
+    public const TYPE_DPLUS = 'D';
 
-    const REGEX_PHPSS_DATEFORMATS = [
+    public const REGEX_PHPSS_DATEFORMATS = [
         // Y/m/d
         '([0-9]{4})/[0-9]{2}/[0-9]{2}' => NumberFormat::FORMAT_DATE_YYYYMMDDSLASH,
         // m/d/Y
@@ -19,7 +21,7 @@ class Date {
         '[0-9]{2}/[0-9]{2}/([0-9]{2})' => NumberFormat::FORMAT_DATE_YYYYMMDDSLASH,
     ];
 
-    const REGEX_PHP_DATEFORMATS = [
+    public const REGEX_PHP_DATEFORMATS = [
         // Y/m/d
         '([0-9]{4})/[0-9]{2}/[0-9]{2}' => 'Y/m/d',
         // m/d/Y
@@ -33,20 +35,20 @@ class Date {
      * @param  string $date
      * @return string
      */
-    public static function getDate($date) : string
+    public static function getDate($date): string
     {
         return date(self::getPhpDateFormat($date), strtotime($date));
     }
-    
+
     /**
      * Return PhpSpreadsheet Date format for Date
      * @param  string $date
      * @return string
      */
-    public static function getSsDateFormat($date) : string
+    public static function getSsDateFormat($date): string
     {
         foreach (self::REGEX_PHPSS_DATEFORMATS as $regexp => $dateFormat) {
-            if (preg_match ('|' . $regexp . '|', $date)) {
+            if (preg_match('|' . $regexp . '|', $date)) {
                 return $dateFormat;
             }
         }
@@ -58,10 +60,10 @@ class Date {
      * @param  string $date
      * @return string
      */
-    public static function getPhpDateFormat($date) : string
+    public static function getPhpDateFormat($date): string
     {
         foreach (self::REGEX_PHP_DATEFORMATS as $regexp => $dateFormat) {
-            if (preg_match ('|' . $regexp . '|', $date)) {
+            if (preg_match('|' . $regexp . '|', $date)) {
                 return $dateFormat;
             }
         }

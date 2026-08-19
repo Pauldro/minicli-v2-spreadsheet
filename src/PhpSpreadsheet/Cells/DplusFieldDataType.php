@@ -1,20 +1,22 @@
 <?php namespace Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Cells;
+
 // PhpSpreadsheet
 use PhpOffice\PhpSpreadsheet\Cell\DataType;
 
-enum DplusFieldDataType : string
+enum DplusFieldDataType: string
 {
     case String = DataType::TYPE_STRING;
     case Number = DataType::TYPE_NUMERIC;
 
     /**
-     * Return FieldTypeJustify 
+     * Return FieldTypeJustify
      * @param  string $fieldtype
      * @return DplusFieldDataType
      */
-    public static function find(string $fieldtype) : DplusFieldDataType {
+    public static function find(string $fieldtype): DplusFieldDataType
+    {
         $search = strtoupper($fieldtype);
-        return match($search) {
+        return match ($search) {
             'C' => self::String,
             'D' => self::Number,
             'I' => self::Number,

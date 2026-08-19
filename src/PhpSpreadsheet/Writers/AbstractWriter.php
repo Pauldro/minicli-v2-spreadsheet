@@ -1,23 +1,25 @@
 <?php namespace Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Writers;
+
 // PhpSpreadsheet Library
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\BaseWriter;
-
 
 /**
  * Class for Writing Spreadsheets
  *
  * @property string $directory       Directory to Write file to
  * @property string $lastWrittenFile Last Written File
- * @property string $errorMsg 
+ * @property string $errorMsg
  */
-abstract class AbstractWriter {
-    const EXTENSION = 'txt';
+abstract class AbstractWriter
+{
+    public const EXTENSION = 'txt';
     public $lastWrittenFile = '';
     public $errorMsg = '';
     protected $dir;
 
-    public function __construct($dir) {
+    public function __construct($dir)
+    {
         if (is_dir($dir) === false) {
             throw new \Exception("Write Directory not found: '$dir'");
         }
@@ -29,7 +31,7 @@ abstract class AbstractWriter {
      * @param  string $filename
      * @return string
      */
-    protected function generateFilepath(string $filename) : string
+    protected function generateFilepath(string $filename): string
     {
         return $this->dir . $filename . '.' . static::EXTENSION;
     }
@@ -38,7 +40,7 @@ abstract class AbstractWriter {
      * Return Spreadsheet File Writer
      * @return BaseWriter
      */
-    abstract protected function getWriter(Spreadsheet $spreadsheet) : BaseWriter;
+    abstract protected function getWriter(Spreadsheet $spreadsheet): BaseWriter;
 
     /**
      * Writes Spreadsheet to File
@@ -46,8 +48,8 @@ abstract class AbstractWriter {
      * @param  string      $filename
      * @return bool
      */
-    public function write(Spreadsheet $spreadsheet, string $filename) : bool
-    {	
+    public function write(Spreadsheet $spreadsheet, string $filename): bool
+    {
         $filepath = $this->generateFilepath($filename);
         $writer  = $this->getWriter($spreadsheet);
         $writer->save($filepath);

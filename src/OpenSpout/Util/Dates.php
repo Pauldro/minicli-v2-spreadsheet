@@ -3,10 +3,11 @@
 /**
  * Utilities for Dates
  */
-class Dates {
-    const TYPE_DPLUS = 'D';
+class Dates
+{
+    public const TYPE_DPLUS = 'D';
 
-    const REGEX_PHPSS_DATEFORMATS = [
+    public const REGEX_PHPSS_DATEFORMATS = [
         // Y/m/d
         '([0-9]{4})/[0-9]{2}/[0-9]{2}' => 'mm/dd/yyyy',
         // m/d/Y
@@ -15,7 +16,7 @@ class Dates {
         '[0-9]{2}/[0-9]{2}/([0-9]{2})' => 'mm/dd/yyyy',
     ];
 
-    const REGEX_PHP_DATEFORMATS = [
+    public const REGEX_PHP_DATEFORMATS = [
         // Y/m/d
         '([0-9]{4})/[0-9]{2}/[0-9]{2}' => 'Y/m/d',
         // m/d/Y
@@ -29,20 +30,20 @@ class Dates {
      * @param  string $date
      * @return string
      */
-    public static function getDate($date) : string
+    public static function getDate(string $date): string
     {
         return date(self::getPhpDateFormat($date), strtotime($date));
     }
-    
+
     /**
      * Return PhpSpreadsheet Date format for Date
      * @param  string $date
      * @return string
      */
-    public static function getSsDateFormat(string $date) : string
+    public static function getSsDateFormat(string $date): string
     {
         foreach (self::REGEX_PHPSS_DATEFORMATS as $regexp => $dateFormat) {
-            if (preg_match ('|' . $regexp . '|', $date)) {
+            if (preg_match("|$regexp|", $date)) {
                 return $dateFormat;
             }
         }
@@ -54,10 +55,10 @@ class Dates {
      * @param  string $date
      * @return string
      */
-    public static function getPhpDateFormat(string $date) : string
+    public static function getPhpDateFormat(string $date): string
     {
         foreach (self::REGEX_PHP_DATEFORMATS as $regexp => $dateFormat) {
-            if (preg_match ('|' . $regexp . '|', $date)) {
+            if (preg_match("|$regexp|", $date)) {
                 return $dateFormat;
             }
         }

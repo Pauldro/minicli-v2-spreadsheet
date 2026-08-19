@@ -1,4 +1,5 @@
 <?php namespace Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Converters;
+
 // PhpSpreadsheet
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
@@ -6,15 +7,16 @@ use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 use Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Util\Styles;
 use Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Cells\Cell;
 
-
 /**
  * Handles Converting Cells for Xlsx from TSV
- * 
+ *
  * @property Data\Request  $request      Request Data Container
  * @property Spreadsheet   $spreadsheet  Original Spreadsheet
  */
-class Tsv2Xlsx {
-    public function __construct(Data\Request $request, Spreadsheet $spreadsheet) {
+class Tsv2Xlsx
+{
+    public function __construct(Data\Request $request, Spreadsheet $spreadsheet)
+    {
         $this->request = $request;
         $this->spreadsheet = $spreadsheet;
     }
@@ -23,7 +25,7 @@ class Tsv2Xlsx {
      * Convert Cell Data / Formatting for Xlsx use
      * @return void
      */
-    public function convert() : void
+    public function convert(): void
     {
         $sheet = $this->spreadsheet->getActiveSheet();
         $highestColumnIndex = Coordinate::columnIndexFromString($sheet->getHighestColumn()); // e.g. 5
@@ -45,7 +47,7 @@ class Tsv2Xlsx {
                 /** @var string $fieldType Dplus Data Type */
                 $fieldType = $colData[$col - 1]['type'];
                 Cell::setAlignmentFromFieldtype($cell, $fieldType);
-                
+
                 if ($row > 1) {
                     if ($fieldType == 'D' and $cell->getValue() == '00/00/00') {
                         Cell::setValue($cell, 'C', '00/00/0000');
@@ -56,6 +58,6 @@ class Tsv2Xlsx {
             }
         }
         // Freeze Column Heading Rows
-        $sheet->freezePane('A2'); 
+        $sheet->freezePane('A2');
     }
 }

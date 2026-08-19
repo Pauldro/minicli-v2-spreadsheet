@@ -1,4 +1,5 @@
 <?php namespace Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Util;
+
 // PhpSpreadsheet
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
@@ -7,12 +8,13 @@ use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 
 /**
  * Styles
- * 
+ *
  * Handles Adding styling to Spreadsheet
  */
-class Styles {
+class Styles
+{
     /** @var array Column Heading Styles */
-    const STYLES_COLUMN_HEADER = [
+    public const STYLES_COLUMN_HEADER = [
         'font' => [
             'bold' => true,
             'size' => 14
@@ -24,9 +26,8 @@ class Styles {
         ],
     ];
 
-
     /** @var array Record Heading Styles */
-    const STYLES_RECORD_HEADING = [
+    public const STYLES_RECORD_HEADING = [
         'font' => [
             'bold' => true,
             'size' => 12
@@ -52,7 +53,7 @@ class Styles {
      * @param  string $justify  Code given e.g. r, right
      * @return string
      */
-    public static function getAlignmentCode($justify) : string
+    public static function getAlignmentCode($justify): string
     {
         switch (substr($justify, 0, 1)) {
             case 'r':
@@ -69,7 +70,7 @@ class Styles {
      * @param Worksheet $sheet       Sheet
      * @param int       $columncount Number of Columns to iterate
      */
-    public static function setColumnsAutowidth(Worksheet $sheet, int $columncount = 0) : void
+    public static function setColumnsAutowidth(Worksheet $sheet, int $columncount = 0): void
     {
         if ($columncount === 0) {
             $columncount = Coordinate::columnIndexFromString($sheet->getHighestColumn());

@@ -1,14 +1,17 @@
 <?php namespace Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Converters\Data;
+
 // Pauldro
 use Pauldro\UtilityBelt\Data\Data;
 
 /**
  * Container for spreadsheet conversion data
- * 
+ *
  * @property array $fields
  */
-class Request extends Data {
-    public function __construct() {
+class Request extends Data
+{
+    public function __construct()
+    {
         $this->fields = [];
     }
 }

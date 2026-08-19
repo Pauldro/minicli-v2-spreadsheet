@@ -1,14 +1,15 @@
 <?php namespace Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Cells;
+
 // PhpSpreadsheet
 use PhpOffice\PhpSpreadsheet\Cell\Cell as SsCell;
 // Lib PhpSpreadsheet
 use Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Util\Styles;
 
-
 /**
  * Handles Manipulating Cell
  */
-class Cell {
+class Cell
+{
     /**
      * Set Value for cell after formatting value
      * @param  SsCell $cell
@@ -16,7 +17,7 @@ class Cell {
      * @param  mixed  $value     New Cell Value
      * @return void
      */
-    public static function setValue(SsCell $cell, string $fieldType, $value = null) : void
+    public static function setValue(SsCell $cell, string $fieldType, $value = null): void
     {
         /** @var string $dataType PhpSpreadsheet Data Type */
         $dataType = DplusFieldDataType::find($fieldType)->value;
@@ -33,12 +34,12 @@ class Cell {
         }
 
         $cell->setValueExplicit(floatval($value), $dataType);
-        
+
         // Set Format Code for Numbers
         $formatCode = DataTypes\Number::generateFormatCode($value);
-        
+
         // Remove Thousands comma, the formatter will add it back
-        if (strpos($value, ',') !== false) { 
+        if (strpos($value, ',') !== false) {
             $cell->setValueExplicit(str_replace(',', '', $value), $dataType);
         }
 
@@ -61,7 +62,7 @@ class Cell {
      * @param  string $fieldType  Dplus Data Type (e.g. N for numeric)
      * @return void
      */
-    public static function setAlignmentFromFieldtype(SsCell $cell, $fieldType) : void
+    public static function setAlignmentFromFieldtype(SsCell $cell, $fieldType): void
     {
         $cellAlignment = $cell->getStyle()->getAlignment();
         $cellAlignment->setHorizontal(Styles::getAlignmentCode(DplusFieldJustify::find($fieldType)->value));

@@ -1,4 +1,5 @@
 <?php namespace Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Reader;
+
 // PHP Spreadsheet
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Reader\Csv as Reader;
@@ -9,14 +10,15 @@ use Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Cells\ValueBinders\StringValue
 /**
  * Handles Getting the tab-separated Reader, Returning Spreadsheets
  */
-class Tsv {
+class Tsv
+{
     private static $reader;
 
     /**
      * Return Reader
      * @return Reader
      */
-    public static function reader() : Reader
+    public static function reader(): Reader
     {
         if (empty(self::$reader)) {
             $reader = new Reader();
@@ -33,7 +35,7 @@ class Tsv {
      * @param  string $filepath  /path/to/file
      * @return Spreadsheet
      */
-    public static function getSpreadsheet($filepath) : Spreadsheet
+    public static function getSpreadsheet($filepath): Spreadsheet
     {
         Cell::setValueBinder(new StringValueBinder());
 

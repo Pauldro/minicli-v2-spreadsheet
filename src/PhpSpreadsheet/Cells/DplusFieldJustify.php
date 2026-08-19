@@ -1,18 +1,19 @@
 <?php namespace Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Cells;
 
-enum DplusFieldJustify : string
+enum DplusFieldJustify: string
 {
     case Left  = 'left';
     case Right = 'right';
 
     /**
-     * Return FieldJustify 
+     * Return FieldJustify
      * @param  string $fieldtype
      * @return DplusFieldJustify
      */
-    public static function find(string $fieldtype) : DplusFieldJustify {
+    public static function find(string $fieldtype): DplusFieldJustify
+    {
         $search = strtoupper($fieldtype);
-        return match($search) {
+        return match ($search) {
             'C' => self::Left,
             'D' => self::Left,
             'I' => self::Right,
