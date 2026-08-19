@@ -41,5 +41,4 @@ return (new PhpCsFixer\Config())
         'unary_operator_spaces' => true,
         'whitespace_after_comma_in_array' => true,
     ])
-    ->setLineEnding("\n")
-;
+    ->setLineEnding("\n");
