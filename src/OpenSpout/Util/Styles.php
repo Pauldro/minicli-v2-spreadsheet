@@ -3,7 +3,10 @@
 // Open Spout
 use OpenSpout\Common\Entity\Style\Color;
 use OpenSpout\Common\Entity\Style\Border;
+use OpenSpout\Common\Entity\Style\BorderName;
 use OpenSpout\Common\Entity\Style\BorderPart;
+use OpenSpout\Common\Entity\Style\BorderStyle;
+use OpenSpout\Common\Entity\Style\BorderWidth;
 use OpenSpout\Common\Entity\Style\Style;
 
 class Styles
@@ -11,27 +14,27 @@ class Styles
     public static function generateColumnHeaderStyles(): Style
     {
         $border = new Border(
-            new BorderPart(Border::BOTTOM, Color::BLACK, Border::WIDTH_THICK, Border::STYLE_SOLID)
+            new BorderPart(BorderName::BOTTOM, Color::BLACK, BorderWidth::THICK, BorderStyle::SOLID)
         );
 
         $style = new Style();
-        $style->setBorder($border);
-        $style->setFontBold();
-        $style->setFontSize(14);
+        $style->withBorder($border);
+        $style->withFontBold(true);
+        $style->withFontSize(14);
         return $style;
     }
 
     public static function generateRecordHeaderStyles(): Style
     {
         $border = new Border(
-            new BorderPart(Border::TOP, Color::BLACK, Border::WIDTH_THIN, Border::STYLE_SOLID)
+            new BorderPart(BorderName::TOP, Color::BLACK, BorderWidth::THIN, BorderStyle::SOLID)
         );
 
         $style = new Style();
-        $style->setBorder($border);
-        $style->setFontBold();
-        $style->setFontSize(12);
-        $style->setBackgroundColor(Color::toARGB('E6E6EA'));
+        $style->withBorder($border);
+        $style->withFontBold(true);
+        $style->withFontSize(12);
+        $style->withBackgroundColor(Color::toARGB('E6E6EA'));
         return $style;
     }
 }
