@@ -14,9 +14,9 @@ use PhpOffice\PhpSpreadsheet\Writer\BaseWriter;
 abstract class AbstractWriter
 {
     public const EXTENSION = 'txt';
-    public $lastWrittenFile = '';
-    public $errorMsg = '';
-    protected $dir;
+    public string $lastWrittenFile = '';
+    public string $errorMsg = '';
+    protected string $dir;
 
     public function __construct($dir)
     {

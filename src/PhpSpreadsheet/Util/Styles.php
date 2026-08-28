@@ -7,8 +7,6 @@ use PhpOffice\PhpSpreadsheet\Style as SpreadsheetStyles;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 
 /**
- * Styles
- *
  * Handles Adding styling to Spreadsheet
  */
 class Styles

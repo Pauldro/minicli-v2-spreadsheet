@@ -11,7 +11,7 @@ class Strings
     public const TYPE = DataType::TYPE_STRING;
     public const TYPE_DPLUS = 'C';
 
-    public static function clean($str): string
+    public static function clean(string $str): string
     {
         return stripslashes($str);
     }

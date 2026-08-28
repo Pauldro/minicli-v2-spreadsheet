@@ -15,8 +15,9 @@ use Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Cells\Cell;
  */
 class Tsv2Xlsx
 {
-    public $request;
-    public $spreadsheet;
+    public Data\Request $request;
+    public Spreadsheet $spreadsheet;
+    
     public function __construct(Data\Request $request, Spreadsheet $spreadsheet)
     {
         $this->request = $request;

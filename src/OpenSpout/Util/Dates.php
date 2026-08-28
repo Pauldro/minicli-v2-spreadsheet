@@ -6,7 +6,6 @@
 class Dates
 {
     public const TYPE_DPLUS = 'D';
-
     public const REGEX_PHPSS_DATEFORMATS = [
         // Y/m/d
         '([0-9]{4})/[0-9]{2}/[0-9]{2}' => 'mm/dd/yyyy',
@@ -15,7 +14,6 @@ class Dates
         // m/d/y
         '[0-9]{2}/[0-9]{2}/([0-9]{2})' => 'mm/dd/yyyy',
     ];
-
     public const REGEX_PHP_DATEFORMATS = [
         // Y/m/d
         '([0-9]{4})/[0-9]{2}/[0-9]{2}' => 'Y/m/d',

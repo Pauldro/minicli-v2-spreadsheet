@@ -7,7 +7,6 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx as WriterXlsx;
 use Pauldro\Minicli\v2\Spreadsheet\PhpSpreadsheet\Writers\AbstractWriter;
 
 /**
- * Writer\Xlsx
  * Handles Writing Xlsx files
  */
 class Xlsx extends AbstractWriter
