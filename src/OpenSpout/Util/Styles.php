@@ -1,6 +1,6 @@
 <?php namespace Pauldro\Minicli\v2\Spreadsheet\OpenSpout\Util;
 
-// Open Spout
+// OpenSpout
 use OpenSpout\Common\Entity\Style\Color;
 use OpenSpout\Common\Entity\Style\Border;
 use OpenSpout\Common\Entity\Style\BorderName;
@@ -16,12 +16,7 @@ class Styles
         $border = new Border(
             new BorderPart(BorderName::BOTTOM, Color::BLACK, BorderWidth::THICK, BorderStyle::SOLID)
         );
-
-        $style = new Style();
-        $style->withBorder($border);
-        $style->withFontBold(true);
-        $style->withFontSize(14);
-        return $style;
+        return new Style(border: $border, fontBold: true, fontSize: 14);
     }
 
     public static function generateRecordHeaderStyles(): Style
@@ -29,12 +24,6 @@ class Styles
         $border = new Border(
             new BorderPart(BorderName::TOP, Color::BLACK, BorderWidth::THIN, BorderStyle::SOLID)
         );
-
-        $style = new Style();
-        $style->withBorder($border);
-        $style->withFontBold(true);
-        $style->withFontSize(12);
-        $style->withBackgroundColor(Color::toARGB('E6E6EA'));
-        return $style;
+        return new Style(border: $border, fontBold: true, fontSize: 12, backgroundColor: Color::toARGB('E6E6EA'));
     }
 }
