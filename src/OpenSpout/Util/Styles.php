@@ -16,7 +16,8 @@ class Styles
         $border = new Border(
             new BorderPart(BorderName::BOTTOM, Color::BLACK, BorderWidth::THICK, BorderStyle::SOLID)
         );
-        return new Style(border: $border, fontBold: true, fontSize: 14);
+        $style = new Style(border: $border, fontBold: true, fontSize: 14);
+        return $style;
     }
 
     public static function generateRecordHeaderStyles(): Style
@@ -24,6 +25,17 @@ class Styles
         $border = new Border(
             new BorderPart(BorderName::TOP, Color::BLACK, BorderWidth::THIN, BorderStyle::SOLID)
         );
-        return new Style(border: $border, fontBold: true, fontSize: 12, backgroundColor: Color::toARGB('E6E6EA'));
+        return new Style(border: $border, fontBold: true, fontSize: 13, backgroundColor: Color::toARGB('E6E6EA'));
+    }
+
+    public static function generateRecordTotalStyles(?Style $style = null): Style
+    {
+        if (empty($style)) {
+            $style = new Style();
+        }
+        $style = $style->withFontBold(true);
+        $style = $style->withBackgroundColor(Color::toARGB('EDE731'));
+        $style = $style->withFontSize(Style::DEFAULT_FONT_SIZE);
+        return $style;
     }
 }
